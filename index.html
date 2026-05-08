@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <title>Live Global Japa - ISKCON Hadapsar</title>
+    <meta name="description" content="Chant with Gurumaharaja every morning globally.">
+    
+    <!-- Preconnect to speed up font and library loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Premium Fonts for that "Khatrnak" Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;800&family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <!-- Google Adsense -->
+    <link rel="me" href="https://www.blogger.com/profile/02592603175411325093" />
+    <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+    <meta name='google-adsense-platform-domain' content='blogspot.com'/>
+
+    <style>
+        /* ---------------- CSS OPTIMIZATIONS (GPU ACCELERATED) ---------------- */
+        :root {
+            --primary: #FF9933;
+            --primary-glow: rgba(255, 153, 51, 0.7);
+            --gold: #FFD700;
+            --bg-color: #0d0402;
+            --card-bg: rgba(255, 255, 255, 0.06);
+            --text-main: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.75);
+            --success: #00E676;
+            --danger: #FF1744;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+            word-wrap: break-word; 
+        }
+
+        html {
+            background-color: #0a0a0a; 
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+            overscroll-behavior: none; 
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #0f0518, #2a0b2d, #2e0804, #0a0a0a);
+            background-size: 400% 400%;
+            background-attachment: fixed; 
+            animation: cosmicGradient 15s ease infinite;
+            color: var(--text-main);
+            min-height: 100vh;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden; 
+            touch-action: pan-y; 
+            -webkit-overflow-scrolling: touch;
+            position: relative;
+            will-change: background-position;
+        }
+
+        @keyframes cosmicGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #dashboard-view {
+            padding: 15px 15px 100px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            transition: opacity 0.5s ease;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            transform: translateZ(0); /* Hardware Acceleration */
+        }
+
+        #dashboard-view::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 20%, rgba(255, 153, 51, 0.15), transparent 60%);
+            pointer-events: none;
+            z-index: -1;
+            will-change: opacity;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+            padding: 5px 0;
+        }
+
+        .go-home-btn {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            white-space: nowrap;
+            will-change: transform;
+        }
+        .go-home-btn:active { transform: scale(0.9); background: rgba(255,255,255,0.25); }
+
+        .brand-badge {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 0.85rem;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,0,0,0.4);
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            white-space: nowrap;
+        }
+
+        .guru-profile {
+            margin-top: 10px;
+            position: relative;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, #FF9933, #FFD700, #FF5252, #E040FB);
+            background-size: 300% 300%;
+            box-shadow: 0 0 45px var(--primary-glow);
+            animation: floatProfile 4s infinite ease-in-out, glowPulse 3s infinite alternate;
+            will-change: transform, box-shadow;
+            transform: translateZ(0);
+        }
+        .guru-profile img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #0a0a0a;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+            background-color: #222; /* Placeholder color before load */
+        }
+        @keyframes floatProfile {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes glowPulse {
+            0% { background-position: 0% 50%; box-shadow: 0 0 30px var(--primary-glow); }
+            100% { background-position: 100% 50%; box-shadow: 0 0 60px rgba(255, 215, 0, 0.8); }
+        }
+
+        .title {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 0 5px 25px rgba(0,0,0,0.9);
+            letter-spacing: 1.5px;
+            background: linear-gradient(to right, #ffffff, #ffcc80, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 4s linear infinite;
+            will-change: background-position;
+        }
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            text-align: center;
+            font-weight: 500;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        .clock-container {
+            text-align: center;
+            margin: 10px 0 25px 0;
+            padding: 25px 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 153, 51, 0.4);
+            box-shadow: inset 0 0 25px rgba(0,0,0,0.9), 0 15px 35px rgba(0,0,0,0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-sizing: border-box;
+            transform: translateZ(0);
+        }
+        .digital-clock {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.6rem, 8vw, 3.2rem); 
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 0 15px #FF9933, 0 0 30px #FF9933, 0 0 60px #E65100;
+            letter-spacing: 1px; 
+            line-height: 1.1;
+            white-space: nowrap; 
+            width: 100%;
+            text-align: center;
+        }
+        .date-display {
+            font-size: clamp(0.75rem, 3.5vw, 1rem);
+            color: #ffcc80;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-top: 12px;
+            text-transform: uppercase;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 35px;
+            border-radius: 40px;
+            font-weight: 900;
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            will-change: transform, box-shadow;
+        }
+        .live-active {
+            background: linear-gradient(135deg, #d32f2f, #ff1744, #d32f2f);
+            background-size: 200% auto;
+            box-shadow: 0 0 40px rgba(255, 23, 68, 0.8), inset 0 0 10px rgba(255,255,255,0.3);
+            border: 2px solid rgba(255,255,255,0.6);
+            animation: bigGlow 1.5s infinite alternate, shine 3s linear infinite;
+        }
+        .live-inactive {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--text-muted);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+        .live-dot-anim {
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #fff, 0 0 30px #ff1744;
+            animation: blinkFast 0.8s infinite;
+            will-change: opacity, transform;
+        }
+        @keyframes blinkFast {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.6); }
+        }
+        @keyframes bigGlow {
+            0% { box-shadow: 0 0 20px rgba(211, 47, 47, 0.6); transform: scale(1); }
+            100% { box-shadow: 0 0 50px rgba(255, 23, 68, 1); transform: scale(1.03); }
+        }
+        .status-message {
+            font-size: 1rem;
+            color: #ffb74d;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 0 15px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 28px;
+            padding: 28px 25px;
+            width: 100%;
+            max-width: 420px;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 2px 10px rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            transform: translateZ(0);
+        }
+        .info-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .primary-card {
+            border: 1px solid rgba(33, 150, 243, 0.5);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.2);
+        }
+        .primary-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 8px; height: 100%;
+            background: linear-gradient(180deg, #42A5F5, #0D47A1);
+            border-radius: 28px 0 0 28px;
+        }
+
+        .secondary-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 8px; height: 100%;
+            background: linear-gradient(180deg, #FF9933, #D81B60);
+            border-radius: 28px 0 0 28px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .info-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .info-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .info-value {
+            font-size: 1.3rem;
+            font-weight: 900;
+            font-family: 'Orbitron', monospace;
+            color: #fff;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .copy-icon {
+            color: #FF9933;
+            background: rgba(255,153,51,0.15);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255,153,51,0.3);
+            will-change: transform;
+        }
+        .copy-icon:active {
+            transform: scale(0.8) rotate(-10deg);
+            background: #FF9933;
+            color: #000;
+        }
+
+        .join-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 20px;
+            border-radius: 20px;
+            border: none;
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: white;
+            background: linear-gradient(135deg, #1E88E5, #0D47A1);
+            box-shadow: 0 12px 35px rgba(33, 150, 243, 0.6);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-top: 18px;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: 1px solid rgba(255,255,255,0.2);
+            will-change: transform, box-shadow;
+        }
+        .btn-green {
+            background: linear-gradient(135deg, #43A047, #1B5E20);
+            box-shadow: 0 12px 35px rgba(76, 175, 80, 0.6);
+        }
+        .join-btn::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            animation: sweep 2.5s infinite;
+        }
+        @keyframes sweep {
+            0% { left: -100%; }
+            50%, 100% { left: 200%; }
+        }
+        .join-btn:active {
+            transform: scale(0.94);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .pulse-btn-active {
+            animation: pulseBtn 2s infinite;
+        }
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.8); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 20px rgba(33, 150, 243, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(33, 150, 243, 0); }
+        }
+
+        .join-btn.disabled-look {
+            background: linear-gradient(135deg, #444, #222);
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.5);
+            opacity: 0.85;
+            pointer-events: auto;
+            animation: none;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .join-btn.disabled-look::after { display: none; }
+
+        .input-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 18px;
+            width: 100%;
+        }
+        .custom-input {
+            width: 100%;
+            padding: 18px 20px;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 153, 51, 0.4);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .custom-input:focus {
+            border-color: #FFD700;
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.5), 0 0 20px rgba(255, 215, 0, 0.4);
+            background: rgba(0,0,0,0.7);
+        }
+        .save-btn {
+            background: linear-gradient(135deg, #FF9933, #E65100);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0 25px;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 153, 51, 0.5);
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            will-change: transform;
+        }
+        .save-btn:active { transform: scale(0.85); }
+        
+        .counter-display {
+            font-size: 5.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            color: #FFD700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 153, 51, 0.8), 0 0 80px rgba(230, 81, 0, 1);
+            text-align: center;
+            margin: 20px 0;
+            line-height: 1;
+            transition: transform 0.1s ease;
+            will-change: transform;
+        }
+        .tap-btn {
+            background: linear-gradient(135deg, #FF9933, #E65100, #BF360C);
+            background-size: 200% auto;
+            box-shadow: 0 15px 40px rgba(255, 153, 51, 0.6), inset 0 2px 10px rgba(255,255,255,0.4);
+            font-size: 1.4rem;
+            padding: 25px;
+            border-radius: 50px;
+            border: 2px solid rgba(255,255,255,0.3);
+            animation: shine 3s linear infinite;
+        }
+        .tap-btn:active {
+            transform: scale(0.92);
+            box-shadow: 0 5px 15px rgba(255, 153, 51, 0.8);
+            background-position: right center;
+        }
+        .reset-link {
+            text-align: center;
+            color: var(--danger);
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-top: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255, 23, 68, 0.1);
+            border: 1px solid rgba(255, 23, 68, 0.3);
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 80%;
+            margin-left: 10%;
+            will-change: transform;
+        }
+        .reset-link:active {
+            transform: scale(0.95);
+            background: rgba(255, 23, 68, 0.2);
+        }
+
+        .custom-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 300000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .custom-modal-overlay.show {
+            display: flex;
+            opacity: 1;
+        }
+        .custom-modal-box {
+            background: linear-gradient(145deg, #1f0808, #0a0202);
+            border: 2px solid #FF1744;
+            border-radius: 30px;
+            padding: 40px 30px;
+            text-align: center;
+            max-width: 90%;
+            width: 380px;
+            box-shadow: 0 25px 60px rgba(255, 23, 68, 0.3), inset 0 0 20px rgba(255, 23, 68, 0.1);
+            transform: scale(0.7) translateY(50px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+        }
+        .custom-modal-overlay.show .custom-modal-box {
+            transform: scale(1) translateY(0);
+        }
+        .custom-modal-box::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,23,68,0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .modal-icon {
+            font-size: 3.5rem;
+            color: #FF1744;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255,23,68,0.6);
+            animation: floatProfile 3s infinite ease-in-out;
+        }
+        .modal-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .modal-text {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        .modal-btn {
+            flex: 1;
+            padding: 15px;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+        .cancel-btn {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .cancel-btn:active { transform: scale(0.9); background: rgba(255,255,255,0.2); }
+        .confirm-btn {
+            background: linear-gradient(135deg, #FF1744, #D50000);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 23, 68, 0.5);
+        }
+        .confirm-btn:active { transform: scale(0.9); }
+        
+        .modal-branding {
+            margin-top: 25px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: #FFD700;
+            opacity: 0.7;
+            letter-spacing: 3px;
+        }
+
+        /* ---------------- ZOOM IFRAME UI FIXES (100% ACCURATE FOR VIDEO) ---------------- */
+        #zoom-view {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100%; height: 100%;
+            background: #000;
+            z-index: 99999;
+            transform: translateZ(0);
+        }
+        #zoom-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: white;
+            /* Sandbox attribute removed completely for flawless WebAssembly & Video Processing in WebView */
+        }
+        
+        .exit-zoom-btn {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: #d32f2f;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 15px;
+            font-weight: 800;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.8);
+            border: 2px solid rgba(255,255,255,0.9);
+            z-index: 100000;
+            cursor: pointer;
+            transition: 0.3s;
+            will-change: transform;
+        }
+        .exit-zoom-btn:active {
+            transform: scale(0.92);
+        }
+
+        #loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 100050;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .pulse-ring {
+            width: 100px; height: 100px;
+            background: rgba(255,215,0,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulseLoading 1.5s infinite;
+            will-change: transform, box-shadow;
+        }
+        .pulse-ring i {
+            color: #FFD700;
+            font-size: 3rem;
+            text-shadow: 0 0 20px #FFD700;
+        }
+        @keyframes pulseLoading {
+            0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 35px rgba(255, 215, 0, 0); }
+            100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        }
+        .loading-text { color: white; margin-top: 30px; font-weight: 800; text-align: center; font-size: 1.4rem; letter-spacing: 1px;}
+        .loading-subtext { color: #ffcc80; font-size: 1.05rem; text-align: center; margin-top: 12px; max-width: 90%; font-weight: 600;}
+
+        .toast-msg {
+            position: fixed;
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 20px rgba(255, 255, 255, 0.4);
+            transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 200000;
+            pointer-events: none;
+            white-space: normal;
+            width: max-content;
+            max-width: 90%;
+            text-align: center;
+            border: 2px solid #FFD700;
+            will-change: bottom;
+        }
+        .toast-msg.show {
+            bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Overlay For FORCED PERMISSION -->
+    <div id="loading-overlay">
+        <div class="pulse-ring">
+            <i class="fas fa-video"></i>
+        </div>
+        <div class="loading-text" id="loading-msg">Camera Permission Required!</div>
+        <div class="loading-subtext" id="loading-submsg">Browser par 'ALLOW' click karein taaki Zoom aapka video aur audio start kar sake.</div>
+    </div>
+
+    <!-- 1. THE MAIN DASHBOARD -->
+    <div id="dashboard-view">
+        
+        <!-- FLEX NAV BAR -->
+        <div class="top-nav">
+            <a href="go:home" class="go-home-btn">
+                <i class="fas fa-arrow-left"></i> Home
+            </a>
+            <div class="brand-badge">
+                <i class="fas fa-om"></i> ISKCON Hadapsar
+            </div>
+        </div>
+
+        <div class="guru-profile">
+            <!-- Using loading="lazy" and WebP standard image -->
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2fsqfFIEJzWn-oG13g9IlczIYfU3sLK9bNo1Gsx_efRvrw_TNfLgToEifQYmwB3IojWs6OERHE4sTSbilez9MmkbWgpVXyROK33dKy39mR04_4bXJy6o0e1YAHc_eV4Vndi_UuISaOKiL1KrQIQan9VpgyrA3Dzuv0lMVLFQzqzavWgSp-4mt6LUceiA/s554/1000236612.webp" alt="Loknath Swami" loading="lazy">
+        </div>
+
+        <h1 class="title">Live Global Japa</h1>
+        <p class="subtitle">Chant with Gurumaharaja every morning</p>
+
+        <!-- THE MASSIVE CLOCK -->
+        <div class="clock-container">
+            <div class="digital-clock" id="clock-display">00:00:00</div>
+            <div class="date-display" id="date-display">-- --- ----</div>
+        </div>
+
+        <!-- LIVE STATUS BADGE -->
+        <div id="status-badge" class="status-badge live-inactive">
+            <i class="far fa-clock"></i> CHECKING TIME...
+        </div>
+        <div id="status-message" class="status-message">Please wait...</div>
+
+        <!-- SERVER 1 CARD -->
+        <div class="info-card primary-card">
+            <div class="info-row" style="border-bottom: none; margin-bottom: 5px;">
+                <div>
+                    <div class="info-label" style="color: #64B5F6;">Primary Meeting</div>
+                    <div class="info-value">Server 1</div>
+                </div>
+            </div>
+            
+            <button class="join-btn pulse-btn-active" id="btn-server1" onclick="openZoom('https://us05web.zoom.us/j/5218469861?pwd=0Xmqv2gxjyNb0lOTYsdOUifLRJGbXs.1')">
+                <i class="fas fa-video"></i> CONNECT SERVER 1
+            </button>
+            <div style="text-align: center; margin-top: 12px; font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">
+                <i class="fas fa-bolt" style="color: #FFD700;"></i> Auto-Login Enabled. No password needed!
+            </div>
+        </div>
+
+        <!-- SERVER 2 CARD -->
+        <div class="info-card secondary-card">
+            <div class="info-row" style="border-bottom: none; margin-bottom: 5px;">
+                <div>
+                    <div class="info-label" style="color: #ffb74d;">Backup Meeting</div>
+                    <div class="info-value">Server 2</div>
+                </div>
+            </div>
+            
+            <button class="join-btn btn-green" id="btn-server2" onclick="openZoom('https://us05web.zoom.us/j/5218469861?pwd=0Xmqv2gxjyNb0lOTYsdOUifLRJGbXs.1')">
+                <i class="fas fa-video"></i> CONNECT SERVER 2
+            </button>
+        </div>
+
+        <!-- AUTO-LOGIN PROFILE CARD -->
+        <div class="info-card">
+            <div class="info-label">Your Name (Auto-Login Profile)</div>
+            <div class="input-group">
+                <input type="text" id="devotee-name" class="custom-input" placeholder="Enter name...">
+                <button class="save-btn" onclick="saveName()"><i class="fas fa-check"></i></button>
+            </div>
+            <div style="font-size: 0.95rem; color: #00E676; font-weight: 800; margin-top: 12px; text-align: center; display: none;" id="saved-success-msg">
+                <i class="fas fa-check-circle"></i> Profile Saved Successfully!
+            </div>
+        </div>
+
+        <!-- JAPA COUNTER CARD -->
+        <div class="info-card" style="text-align: center; border: 1px solid rgba(255, 215, 0, 0.4); box-shadow: 0 15px 40px rgba(255, 215, 0, 0.15);">
+            <div class="info-label" style="color: #FFD700; font-size: 1rem;"><i class="fas fa-om"></i> Digital Japa Counter</div>
+            <div class="counter-display" id="bead-count">0</div>
+            <div class="subtitle" id="round-count" style="margin-bottom: 25px; color: #00E676; font-size: 1.3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;">Rounds Completed: 0</div>
+            
+            <button class="join-btn tap-btn" onclick="tapJapa()">
+                📿 TAP TO CHANT 
+            </button>
+            <!-- Custom Premium Modal Trigger -->
+            <div class="reset-link" onclick="resetJapa()"><i class="fas fa-sync-alt"></i> Reset Counter</div>
+        </div>
+
+        <!-- MANUAL ENTRY/BACKUP IDS & PASSCODE -->
+        <div class="info-card" style="opacity: 0.9;">
+            <div style="text-align: center; margin-bottom: 18px; font-weight: 800; color: var(--text-muted); font-size: 1rem;">
+                <i class="fas fa-info-circle"></i> Manual Login Info (Backup)
+            </div>
+            <div class="info-row">
+                <div>
+                    <div class="info-label">Server 1 ID</div>
+                    <div class="info-value" style="font-size: 1.1rem;">843 6804 0601</div>
+                </div>
+                <i class="fas fa-copy copy-icon" onclick="copyText('84368040601', 'Server 1 ID Copied!')"></i>
+            </div>
+            <div class="info-row">
+                <div>
+                    <div class="info-label">Server 2 ID</div>
+                    <div class="info-value" style="font-size: 1.1rem;">941 5113 791</div>
+                </div>
+                <i class="fas fa-copy copy-icon" onclick="copyText('9415113791', 'Server 2 ID Copied!')"></i>
+            </div>
+            <div class="info-row" style="border:none; padding-bottom: 0;">
+                <div>
+                    <div class="info-label">Passcode</div>
+                    <div class="info-value" style="font-size: 1.3rem; color: #00E676;">1896</div>
+                </div>
+                <i class="fas fa-copy copy-icon" onclick="copyText('1896', 'Passcode Copied!')"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 2. THE ZOOM IFRAME SCREEN - 100% FIXED FOR VIDEO -->
+    <!-- Removed 'sandbox' which blocks complex WebRTC and WebAssembly required by Zoom -->
+    <!-- Updated 'allow' to standard device features -->
+    <div id="zoom-view">
+        <iframe id="zoom-frame" 
+                allow="camera; microphone; display-capture; autoplay; fullscreen; clipboard-read; clipboard-write;" 
+                allowfullscreen="true" 
+                webkitallowfullscreen="true" 
+                mozallowfullscreen="true" 
+                allowtransparency="true">
+        </iframe>
+        
+        <button class="exit-zoom-btn" onclick="closeZoom()">
+            <i class="fas fa-arrow-left"></i> Go Back
+        </button>
+    </div>
+
+    <!-- 3. PREMIUM CUSTOM CONFIRM MODAL -->
+    <div id="custom-confirm-modal" class="custom-modal-overlay">
+        <div class="custom-modal-box">
+            <div class="modal-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <h3 class="modal-title">Reset Counter?</h3>
+            <p class="modal-text">Kya aap sach mein apna japa counter zero karna chahte hain? Ye wapas nahi aayega!</p>
+            <div class="modal-actions">
+                <button class="modal-btn cancel-btn" onclick="closeResetModal()">Nahi, Cancel</button>
+                <button class="modal-btn confirm-btn" onclick="confirmResetJapa()">Haan, Reset Karein</button>
+            </div>
+            <div class="modal-branding"><i class="fas fa-om"></i> ISKCON HADAPSAR</div>
+        </div>
+    </div>
+
+    <!-- Toast Message Div -->
+    <div id="toast" class="toast-msg">Copied!</div>
+
+
+    <!-- 4. JAVASCRIPT LOGIC (OPTIMIZED & MEMORY-SAFE) -->
+    <script>
+        // Optimization: Cache DOM elements
+        const DOM = {
+            toast: document.getElementById('toast'),
+            clockDisplay: document.getElementById('clock-display'),
+            dateDisplay: document.getElementById('date-display'),
+            statusBadge: document.getElementById('status-badge'),
+            statusMessage: document.getElementById('status-message'),
+            btnServer1: document.getElementById('btn-server1'),
+            btnServer2: document.getElementById('btn-server2'),
+            devoteeName: document.getElementById('devotee-name'),
+            savedMsg: document.getElementById('saved-success-msg'),
+            beadCount: document.getElementById('bead-count'),
+            roundCount: document.getElementById('round-count'),
+            confirmModal: document.getElementById('custom-confirm-modal'),
+            loadingOverlay: document.getElementById('loading-overlay'),
+            loadingMsg: document.getElementById('loading-msg'),
+            loadingSubmsg: document.getElementById('loading-submsg'),
+            dashboardView: document.getElementById('dashboard-view'),
+            zoomFrame: document.getElementById('zoom-frame'),
+            zoomView: document.getElementById('zoom-view')
+        };
+
+        let toastTimeout;
+
+        function copyText(text, msg) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => showToast(msg)).catch(fallbackCopyTextToClipboard.bind(null, text, msg));
+            } else {
+                fallbackCopyTextToClipboard(text, msg);
+            }
+        }
+
+        function fallbackCopyTextToClipboard(text, msg) {
+            let tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand("copy");
+                showToast(msg);
+            } catch (err) {}
+            document.body.removeChild(tempInput);
+        }
+
+        function showToast(msg) {
+            DOM.toast.innerText = msg;
+            DOM.toast.classList.add('show');
+            if (navigator.vibrate) navigator.vibrate(50);
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => { DOM.toast.classList.remove('show'); }, 2500);
+        }
+
+        function updateClockAndStatus() {
+            const now = new Date();
+            
+            const optionsTime = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            DOM.clockDisplay.innerText = now.toLocaleTimeString('en-US', optionsTime);
+
+            const optionsDate = { timeZone: 'Asia/Kolkata', weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+            DOM.dateDisplay.innerText = now.toLocaleDateString('en-US', optionsDate);
+
+            // Fast IST conversion logic
+            const istTimeStr = now.toLocaleString("en-US", {timeZone: "Asia/Kolkata", hourCycle: 'h23'});
+            const istDate = new Date(istTimeStr);
+            const hours = istDate.getHours();
+            const minutes = istDate.getMinutes();
+            const totalMins = (hours * 60) + minutes;
+
+            const isLive = (totalMins >= 315 && totalMins <= 450); // 5:15 AM to 7:30 AM IST
+
+            if (isLive) {
+                if (!DOM.statusBadge.classList.contains('live-active')) {
+                    DOM.statusBadge.className = 'status-badge live-active';
+                    DOM.statusBadge.innerHTML = '<div class="live-dot-anim"></div> LIVE NOW';
+                    DOM.statusMessage.innerText = "Gurumaharaja is chanting right now. Join immediately!";
+                    DOM.statusMessage.style.color = "#00E676";
+                    
+                    DOM.btnServer1.classList.remove('disabled-look');
+                    DOM.btnServer1.classList.add('pulse-btn-active');
+                    DOM.btnServer2.classList.remove('disabled-look');
+                }
+            } else {
+                if (!DOM.statusBadge.classList.contains('live-inactive')) {
+                    DOM.statusBadge.className = 'status-badge live-inactive';
+                    DOM.statusBadge.innerHTML = '<i class="far fa-clock"></i> NEXT AT 5:15 AM';
+                    DOM.statusMessage.innerText = "Waiting for the next live Japa session...";
+                    DOM.statusMessage.style.color = "#ffb74d";
+                    
+                    DOM.btnServer1.classList.add('disabled-look');
+                    DOM.btnServer1.classList.remove('pulse-btn-active');
+                    DOM.btnServer2.classList.add('disabled-look');
+                }
+            }
+        }
+
+        let saveTimeout;
+        function saveName() {
+            const nameInput = DOM.devoteeName.value.trim();
+            if(nameInput) {
+                localStorage.setItem('japa_user_name', nameInput);
+                DOM.savedMsg.style.display = 'block';
+                if (navigator.vibrate) navigator.vibrate(50);
+                clearTimeout(saveTimeout);
+                saveTimeout = setTimeout(() => { DOM.savedMsg.style.display = 'none'; }, 3000);
+            } else {
+                showToast("Please enter a valid name!");
+            }
+        }
+
+        let beads = 0;
+        let rounds = 0;
+        
+        function loadData() {
+            let savedName = localStorage.getItem('japa_user_name');
+            if(!savedName) {
+                savedName = "Iskcon Hadapsar";
+                localStorage.setItem('japa_user_name', savedName);
+            }
+            DOM.devoteeName.value = savedName;
+
+            beads = parseInt(localStorage.getItem('japa_beads') || 0);
+            rounds = parseInt(localStorage.getItem('japa_rounds') || 0);
+            updateCounterUI();
+        }
+
+        function tapJapa() {
+            DOM.beadCount.style.transform = 'scale(1.1)';
+            setTimeout(() => { DOM.beadCount.style.transform = 'scale(1)'; }, 100);
+
+            beads++;
+            if(beads >= 108) {
+                beads = 0;
+                rounds++;
+                showToast("Hare Krishna! 1 Round Completed! 🎉");
+            }
+            saveCounterData();
+            updateCounterUI();
+            if (navigator.vibrate) navigator.vibrate(50);
+        }
+
+        function resetJapa() {
+            if (navigator.vibrate) navigator.vibrate([50, 50, 50]);
+            DOM.confirmModal.style.display = 'flex';
+            // Force reflow for animation
+            void DOM.confirmModal.offsetWidth;
+            DOM.confirmModal.classList.add('show');
+        }
+
+        function closeResetModal() {
+            DOM.confirmModal.classList.remove('show');
+            setTimeout(() => {
+                DOM.confirmModal.style.display = 'none';
+            }, 300); 
+        }
+
+        function confirmResetJapa() {
+            beads = 0;
+            rounds = 0;
+            saveCounterData();
+            updateCounterUI();
+            closeResetModal();
+            showToast("Counter Reset Successfully.");
+            if (navigator.vibrate) navigator.vibrate(100);
+        }
+
+        function saveCounterData() {
+            localStorage.setItem('japa_beads', beads);
+            localStorage.setItem('japa_rounds', rounds);
+        }
+
+        function updateCounterUI() {
+            DOM.beadCount.innerText = beads;
+            DOM.roundCount.innerText = "Rounds Completed: " + rounds;
+        }
+
+        // ----------------------------------------------------------------------
+        // 100% FIXED: ZOOM IFRAME VIDEO & AUDIO INITIALIZATION
+        // ----------------------------------------------------------------------
+        async function openZoom(originalUrl) {
+            DOM.loadingOverlay.style.display = 'flex';
+            
+            // 1. Ask for permission explicitly in AppCreator24/WebView before iframe loads.
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                // ULTRA-IMPORTANT: Turn off tracks immediately so Zoom can capture the device.
+                stream.getTracks().forEach(track => {
+                    track.stop();
+                });
+                
+                DOM.loadingMsg.innerText = "Connecting Securely...";
+                DOM.loadingSubmsg.innerText = "Video aur Audio setup ready hai. Please wait!";
+
+            } catch (err) {
+                alert("Bhai Permission Denied! ❌\nBina camera/mic permission ke zoom me video nahi chalega. Kripya device settings ya browser url bar se permission 'ALLOW' karein.");
+                DOM.loadingOverlay.style.display = 'none';
+                return; 
+            }
+
+            let cleanUrl = originalUrl;
+            let meetingIdMatch = originalUrl.match(/\/(?:j|wc)\/(\d+)/);
+            let pwdMatch = originalUrl.match(/pwd=([^&]+)/);
+
+            let savedName = DOM.devoteeName.value.trim() || localStorage.getItem('japa_user_name') || "Iskcon Hadapsar";
+
+            if (meetingIdMatch && meetingIdMatch[1]) {
+                let mid = meetingIdMatch[1];
+                let meetingPwd = (pwdMatch && pwdMatch[1]) ? pwdMatch[1] : "1896";
+                let encodedName = savedName ? btoa(unescape(encodeURIComponent(savedName))) : "";
+                
+                // Proper Web Client Zoom Format forcing video and audio pre-fill optimizations
+                cleanUrl = `https://app.zoom.us/wc/${mid}/join?prefer_code=1&pwd=${meetingPwd}&prefill_audio=1&prefill_video=1`;
+                
+                if (savedName) {
+                    cleanUrl += `&un=${encodedName}&uname=${encodeURIComponent(savedName)}`;
+                }
+            }
+
+            // Small delay to ensure memory flush and UI smooth transition
+            setTimeout(() => {
+                DOM.loadingOverlay.style.display = 'none';
+                DOM.dashboardView.style.display = 'none';
+                
+                DOM.zoomFrame.src = cleanUrl; 
+                DOM.zoomView.style.display = 'block';
+            }, 800); 
+        }
+
+        function closeZoom() {
+            DOM.zoomView.style.display = 'none';
+            DOM.zoomFrame.src = ''; // Clean up memory and kill Zoom session instantly
+            DOM.dashboardView.style.display = 'flex';
+        }
+
+        // Initialize App
+        window.addEventListener('DOMContentLoaded', () => {
+            loadData();
+            updateClockAndStatus();
+            // Optimize interval to strictly 1 second using precise clock matching
+            setInterval(updateClockAndStatus, 1000);
+        });
+
+    </script>
+
+</body>
+</html>
